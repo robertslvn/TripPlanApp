@@ -1,0 +1,72 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TripPlan - @ViewBag.Title</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" , href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" , href="~/lib/bootswatch/cyborg/bootstrap.min.css" />
+    <link rel="stylesheet" , href="~/lib/Font-Awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" , href="~/css/site.css" />
+
+</head>
+<body>
+    <div id="sidebar">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <img src="~/img/1.jpg" alt="headshot" class="headshot" />
+            <span id="username">Welcome @User.Identity.Name</span> 
+        }
+        <ul class="nav">
+            <li class="active"><a asp-controller="App" asp-action="Index">Home</a></li>
+            
+        @if (User.Identity.IsAuthenticated)
+        {
+            <li><a asp-controller="App" asp-action="Trips">My Trips</a></li>
+            <li><a asp-controller="App" asp-action="Contact">Contact Us</a></li>}
+@if (User.Identity.IsAuthenticated)
+{
+            <li><a asp-controller="Auth" asp-action="Logout">Logout</a></li> }
+        
+        </ul>
+    </div>
+    <div id="wrapper">
+        <nav class="navbar">
+            <div class="container-fluid" id ="topBar">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a asp-controller="App" asp-action="Index" class="navbar-brand"><p><img class="triplogo" src="~/img/logo.png" />TripPlan</p></a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <button id="sidebarToggle" class="btn btn-primary">
+
+            <p class="togglesidep"><i class="fa fa-angle-left" aria-hidden="true"></i> Toggle Sidebar</p>
+
+        </button>
+        <div id="main" class="container-fluid">
+
+            @RenderBody()
+        </div>
+        <div id="footer" class="container-fluid">
+            <div class="navbar-fixed-bottom">
+                <p class="text-center text-info">&copy; 2017 TripPlan</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <environment names="Development">
+        <script type="text/javascript" src="~/js/site.js"></script>
+    </environment>
+    <environment names="Production,Staging">
+        <script type="text/javascript" src="~/lib/_app/site.js"></script>
+    </environment>
+    @RenderSection("scripts", false)
+
+   
+</body>
+</html>

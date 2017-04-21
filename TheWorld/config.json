@@ -1,0 +1,15 @@
+{
+  "MailSettings": {
+    "SmtpServerUser": "randomemailaspnet@gmail.com",
+    "SmtpServerPass": "P@ssw0rd!"
+
+
+  },
+  "ConnectionStrings": {
+    "WorldContextConnection": "Server=(localdb)\\MSSQLLocalDB; Database=TheWorldDb;Trusted_Connection=true;MultipleActiveResultSets=true"
+  },
+  "Keys": {
+    "BingKey": "NOTHERE"
+  }
+
+}

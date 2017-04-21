@@ -1,0 +1,28 @@
+﻿<div class="col-md-6 col-md-offset-3">
+    <div class="text-danger" ng-show="vm.errorMessage">{{vm.errorMessage}}</div>
+    <wait-cursor display-when="vm.isBusy"></wait-cursor>
+    <table class="table table-responsive">
+        <tr><td colspan="3"><h4>Trip List</h4></td></tr>
+        <tr ng-repeat="trip in vm.trips | orderBy:'name'">
+            <td><p>{{ trip.name }}</p></td>
+            <td><p>Created: {{ trip.dateCreated | date:'MM-dd-yyyy' }}</p></td>
+            <td><a ng-href="#/editor/{{ trip.name }}" class="btn btn-sm btn-primary mbutton">Manage</a> <button class="btn btn-sm btn-primary mbutton" ng-click="vm.delTrip(trip.name)">Delete</button></td>
+
+        </tr>
+    </table>
+
+    <form novalidate name="newTripForm" ng-submit="vm.addTrip()" class="newTripArea">
+        <div class="form-group">
+
+            <label for="name">New Trip Name</label>
+            <input class="form-control" type="text" id="name" name="name" ng-model="vm.newTrip.name" required ng-minlength="5" />
+            <span ng-show="newTripForm.name.$error.required" class="text-warning">Name is required</span>
+            <span ng-show="newTripForm.name.$error.minlength" class="text-warning">Must be at least five characters</span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Add New Trip"
+                   class="btn btn-success btn-sm"
+                   ng-disabled="newTripForm.$invalid" />
+        </div>
+    </form>
+</div>

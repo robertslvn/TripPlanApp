@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings": {
+    "WorldContextConnection": "Server=tcp:tripplandemo.database.windows.net,1433;Initial Catalog=TripPlanDemo;Persist Security Info=False;User ID=robertsvn;Password=P@ssw0rd!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+  }
+}
